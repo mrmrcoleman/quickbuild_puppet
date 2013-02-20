@@ -1,0 +1,3 @@
+#!/bin/sh
+cd /opt/quickbuild
+rm -fRv quickbuild*

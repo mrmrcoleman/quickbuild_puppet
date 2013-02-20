@@ -1,0 +1,5 @@
+#!/bin/sh
+
+cd /opt/quickbuild
+tar xvf quickbuild*
+rm -v quickbuild*.tar.gz

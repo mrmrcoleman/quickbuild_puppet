@@ -1,0 +1,8 @@
+Package: quickbuild
+Version: 5.0.8
+Section: base
+Priority: optional
+Architecture: all
+Depends: bash
+Maintainer: m.coleman@uglyduckling.nl
+Description: Quickbuild 5.0.8

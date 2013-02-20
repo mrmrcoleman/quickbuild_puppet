@@ -31,6 +31,18 @@ class quickbuild {
   package { "vim":
     ensure => present,
   }
+
+  # mysql-server
+  package { "mysql-server":
+    ensure => present,
+    require => Exec['apt-get update']
+  }
+
+  # mysql-client
+  package { "mysql-client":
+    ensure => present,
+    require => Exec['apt-get update']
+  }
 }
 
 include quickbuild
