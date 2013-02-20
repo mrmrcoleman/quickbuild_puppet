@@ -1,53 +1,36 @@
-# Basic Puppet Apache manifest
+class quickbuild {
+  # Added this clean because I was seeing odd apt-get errors
+  exec { 'apt-get clean':
+    command => '/usr/bin/apt-get clean',
+  }
 
-class apache {
+  # Update all currently installed packages
   exec { 'apt-get update':
-    command => '/usr/bin/apt-get update'
+    command => '/usr/bin/apt-get update',
+    require => Exec['apt-get clean']
   }
 
-  package { "apache2":
-    ensure => present,
-  }
-
-  service { "apache2":
-    ensure => running,
-    require => Package["apache2"],
-  }
-
-  file { '/var/www':
-    ensure => link,
-    target => "/vagrant",
-    notify => Service['apache2'],
-    force  => true
-  }
-}
-
-class jdk_6 {
+  # Quickbuild needs Java6
   package { "openjdk-6-jdk":
     ensure => present,
+    require => Exec['apt-get update']
   }
-}
-
-class quickbuild {
-	# create the installation directory      
-	file { "/opt/quickbuild":
+  
+  # create the installation directory      
+  file { "/opt/quickbuild":
     ensure => "directory",
-	}
+  }
 	
-	# create the quickbuild user
-	user { 'quickbuild':
-		uid         => '1337',
-		managehome  => true,
-	}
-}
+  # create the quickbuild user
+  user { 'quickbuild':
+    uid         => '1337',
+    managehome  => true,
+  }
 
-class vim {
+  # Need that vim!
   package { "vim":
     ensure => present,
   }
 }
 
-include vim
-include apache
-include jdk_6
 include quickbuild
