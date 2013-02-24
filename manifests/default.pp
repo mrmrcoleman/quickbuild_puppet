@@ -20,6 +20,12 @@ class quickbuild {
   file { "/opt/quickbuild":
     ensure => "directory",
   }
+
+  # create the quickbuild storage directory
+  file { "/opt/quickbuild/storage":
+   ensure => "directory",
+   require => File['/opt/quickbuild']
+  }
 	
   # create the quickbuild user
   user { 'quickbuild':
