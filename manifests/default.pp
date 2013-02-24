@@ -49,6 +49,12 @@ class quickbuild {
     ensure => present,
     require => Exec['apt-get update']
   }
+
+  # git-core
+  package { "git-core":
+    ensure => present,
+    require => Exec['apt-get update']
+  }
 }
 
 include quickbuild

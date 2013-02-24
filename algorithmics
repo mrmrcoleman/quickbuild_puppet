@@ -1,1 +1,6 @@
-GREEN
+deployToBuild,RED
+smokeTestOnBuild,RED
+deployToAcceptance,RED
+smokeTestOnAcceptance,RED
+regressionTestOnAcceptance,RED
+deployToProduction, RED
