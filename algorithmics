@@ -1,4 +1,4 @@
-deployToBuild,RED
+deployToBuild,GREEN
 smokeTestOnBuild,RED
 deployToAcceptance,RED
 smokeTestOnAcceptance,RED
