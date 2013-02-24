@@ -1,5 +1,5 @@
 deployToBuild,GREEN
-smokeTestOnBuild,RED
+smokeTestOnBuild,GREEN
 deployToAcceptance,RED
 smokeTestOnAcceptance,RED
 regressionTestOnAcceptance,RED
